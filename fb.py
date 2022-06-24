@@ -30,6 +30,7 @@ from selenium.webdriver.common.keys import Keys
 from time import sleep
 import time
 option = Options()
+from selenium.webdriver.common.by import By
 
 option.add_argument("--disable-infobars")
 option.add_argument("start-maximized")
@@ -41,22 +42,24 @@ option.add_experimental_option("prefs", {
 })
 #login
 driver = webdriver.Chrome(chrome_options=option, executable_path='chromedriver.exe')
-url = 'https://www.facebook.com/'
+url = 'https://www.facebook.com/messages/t/100006469591903'
 driver.get(url)
 
 taikhoan = '0968800341'
-User =  driver.find_element_by_id('email')
+User =  driver.find_element(By.ID,"email")
 User.send_keys(taikhoan)
 
 password = 'Thong01bg'
-Pass =  driver.find_element_by_id('pass')
+Pass =  driver.find_element(By.ID,'pass')
 Pass.send_keys(password)
 
 Pass.send_keys(Keys.ENTER)
 
 while True:
  time.sleep(7)
- ten = 'yeuemmm'
- seach = driver.find_element_by_css_selector('.notranslate')
+ ten = 'hihi'
+#  seach = driver.find_element_by_css_selector('.notranslate')
+ seach = driver.find_element(By.CSS_SELECTOR, '.notranslate')
+
  seach.send_keys(ten)
  seach.send_keys(Keys.ENTER)

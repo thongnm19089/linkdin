@@ -32,28 +32,26 @@ time.sleep(3)
 # taikhoan = 'contact@tagon.ai'
 taikhoan = 'thongnm.nde19089@vtc.edu.vn'
 
-User =  driver.find_element_by_id('username')
+User =  driver.find_element(By.ID,'username')
 User.send_keys(taikhoan)
 
 time.sleep(3)
 # password = '@!(tisd%Fvc5hKt'
 password = 'Anhthong01bg'
-Pass =  driver.find_element_by_id('password')
+Pass =  driver.find_element(By.ID,'password')
 Pass.send_keys(password)
 Pass.send_keys(Keys.ENTER)
 
 #search
-# try:
-timkiem = input("\n nhập từ khóa tìm kiếm : ")
-search = driver.find_element(By.XPATH, '//*[@id="global-nav-typeahead"]/input')
-search.send_keys(timkiem)
-search.send_keys(Keys.ENTER)
-# except:
-    
-#     search = driver.find_element(By.CSS_SELECTOR, '#global-nav-search > div > button > li-icon > svg > path')
-    
-#     search.send_keys('python developer jobs')
-#     search.send_keys(Keys.ENTER)
+try:
+    timkiem = input("\n nhập từ khóa tìm kiếm : ")
+    search = driver.find_element(By.XPATH, '//*[@id="global-nav-typeahead"]/input')
+    search.send_keys(timkiem)
+    search.send_keys(Keys.ENTER)
+except:
+    search = driver.find_element(By.CSS_SELECTOR, '#global-nav-search > div > button > li-icon > svg > path')
+    search.send_keys('python developer jobs')
+    search.send_keys(Keys.ENTER)
 
 
 #lấy link
