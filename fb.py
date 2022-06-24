@@ -49,6 +49,7 @@ taikhoan = '0968800341'
 User =  driver.find_element(By.ID,"email")
 User.send_keys(taikhoan)
 
+
 password = 'Thong01bg'
 Pass =  driver.find_element(By.ID,'pass')
 Pass.send_keys(password)

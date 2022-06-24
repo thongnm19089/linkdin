@@ -54,6 +54,7 @@ except:
     search.send_keys(Keys.ENTER)
 
 
+
 #lấy link
 def GetURL():   
     time.sleep(8)
