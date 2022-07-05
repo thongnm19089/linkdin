@@ -24,28 +24,28 @@ option.add_experimental_option("prefs", {
 })
 #login
 driver = webdriver.Chrome(chrome_options=option, executable_path='chromedriver.exe')
-url = 'https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin'
+url = 'https://www.google.com.vn/'
 driver.get(url)
 
 #login
-time.sleep(3)
-# taikhoan = 'contact@tagon.ai'
-taikhoan = 'thongnm.nde19089@vtc.edu.vn'
+# time.sleep(3)
+# # taikhoan = 'contact@tagon.ai'
+# taikhoan = 'thongnm.nde19089@vtc.edu.vn'
 
-User =  driver.find_element(By.ID,'username')
-User.send_keys(taikhoan)
+# User =  driver.find_element(By.ID,'username')
+# User.send_keys(taikhoan)
 
-time.sleep(3)
-# password = '@!(tisd%Fvc5hKt'
-password = 'Anhthong01bg'
-Pass =  driver.find_element(By.ID,'password')
-Pass.send_keys(password)
-Pass.send_keys(Keys.ENTER)
+# time.sleep(3)
+# # password = '@!(tisd%Fvc5hKt'
+# password = 'Anhthong01bg'
+# Pass =  driver.find_element(By.ID,'password')
+# Pass.send_keys(password)
+# Pass.send_keys(Keys.ENTER)
 
 #search
 try:
     timkiem = input("\n nhập từ khóa tìm kiếm : ")
-    search = driver.find_element(By.XPATH, '//*[@id="global-nav-typeahead"]/input')
+    search = driver.find_element(By.XPATH, '/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input')
     search.send_keys(timkiem)
     search.send_keys(Keys.ENTER)
 except:
@@ -60,7 +60,7 @@ def GetURL():
     time.sleep(8)
     page_source = BeautifulSoup(driver.page_source, "html.parser")
 # print(page_source)
-    profiles = page_source.find_all("a", class_ = "app-aware-link scale-down")
+    profiles = page_source.find_all("a", class_ = "sVXRqc")
 
     all_profile_url = []
     for profile in profiles:
@@ -72,21 +72,21 @@ def GetURL():
 
 # a = "\n"   
 # print(a.join(all_profile_url))
-# print(GetURL())
+print(GetURL())
 
 #số trang muốn lấy
 
-URL_all = []
-number_page = int(input("\n nhập số trang muốn lấy  : "))
-# try:
-for page in range(number_page): 
-    URLs_one_page = GetURL()
-    sleep(2)
-    driver.execute_script('window.scrollTo(0,document.body.scrollHeight)')
-    sleep(2)
-    next_botton= driver.find_element(By.CLASS_NAME,'artdeco-pagination__button--next')
-    next_botton.click()
-    URL_all = URL_all + URLs_one_page
+# URL_all = []
+# number_page = int(input("\n nhập số trang muốn lấy  : "))
+# # try:
+# for page in range(number_page): 
+#     URLs_one_page = GetURL()
+#     sleep(2)
+#     driver.execute_script('window.scrollTo(0,document.body.scrollHeight)')
+#     sleep(2)
+#     next_botton= driver.find_element(By.CLASS_NAME,'artdeco-pagination__button--next')
+#     next_botton.click()
+#     URL_all = URL_all + URLs_one_page
 # except:
 #     sleep(10)
 #     print('số trang đã hết')
@@ -95,14 +95,16 @@ for page in range(number_page):
 # writer.writerow(URL_all)
 # f.close()
 
-SST = 0
-with open (timkiem + '.csv', 'w', newline='') as csvfile:
-    fieldnames = ['STT', 'link post']
-    thewriter = csv.DictWriter(csvfile, fieldnames=fieldnames)
-    thewriter.writeheader()
-    for colour in URL_all:
-        SST +=1
-        thewriter.writerow({'STT':SST, 'link post': colour})
+# SST = 0
+# with open (timkiem + '.csv', 'w', newline='') as csvfile:
+#     fieldnames = ['STT', 'link post']
+#     thewriter = csv.DictWriter(csvfile, fieldnames=fieldnames)
+#     thewriter.writeheader()
+#     for colour in URL_all:
+#         SST +=1
+#         thewriter.writerow({'STT':SST, 'link post': colour})
+
+
 # a = "\n"   
 # print(a.join(URL_all))
 sleep(5)

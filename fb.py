@@ -45,12 +45,12 @@ driver = webdriver.Chrome(chrome_options=option, executable_path='chromedriver.e
 url = 'https://www.facebook.com/messages/t/100006469591903'
 driver.get(url)
 
-taikhoan = '0968800341'
+taikhoan = ''
 User =  driver.find_element(By.ID,"email")
 User.send_keys(taikhoan)
 
 
-password = 'Thong01bg'
+password = ''
 Pass =  driver.find_element(By.ID,'pass')
 Pass.send_keys(password)
 
